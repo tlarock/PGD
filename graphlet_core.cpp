@@ -444,7 +444,7 @@ void graphlet_core::read_edge_list(const string& filename) {
     fin.close();
     // Output vert_lookup so I can actually use the output in other programs...
     ofstream fout;
-    fout.open(filename + ".mapping");
+    fout.open((filename + ".mapping").c_str());
     for (int i=0; i < vert_lookup.size(); i++){
 	    fout << i << ',' << vert_lookup.at(i) << '\n';
     }
