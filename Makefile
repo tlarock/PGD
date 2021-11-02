@@ -32,7 +32,7 @@ CFLAGS += -ffast-math -funroll-loops -fno-strict-aliasing \
 	 -fmove-loop-invariants -fprefetch-loop-arrays -ftree-loop-optimize \
 	 -ftree-vect-loop-version -ftree-vectorize
 # CXX = /usr/local/g++-10
-CXX          = /usr/local/bin/g++-10
+CXX          = /usr/bin/g++
 
 
 H_FILES     = graphlet.h
