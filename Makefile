@@ -31,7 +31,7 @@ CFLAGS += -ffast-math -funroll-loops -fno-strict-aliasing \
 	 -fomit-frame-pointer -fexpensive-optimizations -funroll-loops \
 	 -fmove-loop-invariants -fprefetch-loop-arrays -ftree-loop-optimize \
 	 -ftree-vect-loop-version -ftree-vectorize
-CXX          = g++
+CXX          = /usr/bin/g++
 
 
 H_FILES     = graphlet.h

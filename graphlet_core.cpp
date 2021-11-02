@@ -1691,7 +1691,7 @@ inline void graphlet_core::load_progress_bar(long long x, long long n, long long
     			 long long v = e_v[edge_id], u = e_u[edge_id];
     			 long long deg_v = vertices[v+1]-vertices[v], deg_u = vertices[u+1]-vertices[u];
 
-    			 myfile << (v+1) << delim << (u+1) << delim << tri[e] << delim <<
+    			 myfile << (v) << delim << (u) << delim << tri[e] << delim <<
     					 get_2_star(e,deg_v,deg_u)<<delim<<
 						 local_4_clique[e] << delim <<
 						 local_4_chordal_cycle[e] << delim <<
@@ -1724,7 +1724,7 @@ inline void graphlet_core::load_progress_bar(long long x, long long n, long long
     			 long long v = e_v[edge_id], u = e_u[edge_id];
     			 long long deg_v = vertices[v+1]-vertices[v], deg_u = vertices[u+1]-vertices[u];
 
-    			 str_stream << (v+1) << delim << (u+1) << delim;
+    			 str_stream << (v) << delim << (u) << delim;
     			 str_stream << tri[e] << delim <<
     					 get_2_star(e,deg_v,deg_u)<<delim<<
 						 local_4_clique[e] << delim <<
