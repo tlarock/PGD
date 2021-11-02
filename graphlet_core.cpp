@@ -426,6 +426,7 @@ void graphlet_core::read_edge_list(const string& filename) {
                         vert_lookup[v] = vertex_id; // store the new id
                         vertex_id++;
                     }
+		    cout << v << ' ' << vert_lookup[v] << '\n';
                     v = vert_lookup[v]; // get the consistent vertex id
 
                     if (vert_lookup[u] == -1) { // new vertex
@@ -441,6 +442,13 @@ void graphlet_core::read_edge_list(const string& filename) {
         }
     }
     fin.close();
+    // Output vert_lookup so I can actually use the output in other programs...
+    ofstream fout;
+    fout.open(filename + ".mapping");
+    for (int i=0; i < vert_lookup.size(); i++){
+	    fout << i << ',' << vert_lookup.at(i) << '\n';
+    }
+    fout.close();
     vert_lookup.clear();
 
     if (verbose) cout << "vert_list size: " << vert_list.size() <<endl;
@@ -1691,7 +1699,7 @@ inline void graphlet_core::load_progress_bar(long long x, long long n, long long
     			 long long v = e_v[edge_id], u = e_u[edge_id];
     			 long long deg_v = vertices[v+1]-vertices[v], deg_u = vertices[u+1]-vertices[u];
 
-    			 myfile << (v+1) << delim << (u+1) << delim << tri[e] << delim <<
+    			 myfile << (v) << delim << (u) << delim << tri[e] << delim <<
     					 get_2_star(e,deg_v,deg_u)<<delim<<
 						 local_4_clique[e] << delim <<
 						 local_4_chordal_cycle[e] << delim <<
@@ -1724,7 +1732,7 @@ inline void graphlet_core::load_progress_bar(long long x, long long n, long long
     			 long long v = e_v[edge_id], u = e_u[edge_id];
     			 long long deg_v = vertices[v+1]-vertices[v], deg_u = vertices[u+1]-vertices[u];
 
-    			 str_stream << (v+1) << delim << (u+1) << delim;
+    			 str_stream << (v) << delim << (u) << delim;
     			 str_stream << tri[e] << delim <<
     					 get_2_star(e,deg_v,deg_u)<<delim<<
 						 local_4_clique[e] << delim <<
