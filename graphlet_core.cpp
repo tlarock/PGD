@@ -426,6 +426,7 @@ void graphlet_core::read_edge_list(const string& filename) {
                         vert_lookup[v] = vertex_id; // store the new id
                         vertex_id++;
                     }
+		    cout << v << ' ' << vert_lookup[v] << '\n';
                     v = vert_lookup[v]; // get the consistent vertex id
 
                     if (vert_lookup[u] == -1) { // new vertex
@@ -441,6 +442,13 @@ void graphlet_core::read_edge_list(const string& filename) {
         }
     }
     fin.close();
+    // Output vert_lookup so I can actually use the output in other programs...
+    ofstream fout;
+    fout.open(filename + ".mapping");
+    for (int i=0; i < vert_lookup.size(); i++){
+	    fout << i << ',' << vert_lookup.at(i) << '\n';
+    }
+    fout.close();
     vert_lookup.clear();
 
     if (verbose) cout << "vert_list size: " << vert_list.size() <<endl;
